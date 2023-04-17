@@ -1,7 +1,7 @@
 <template>
     <div>
         <select name="type" id="type">
-            <option value="alien">Alien</option>
+            <option value="alien">All</option>
         </select>
     </div>
 </template>
