@@ -29,13 +29,13 @@ export default {
       const url = cards.basepath + cards.endpoint;
       axios.get(url).then((res) => {
         cards.cardsList = res.data.data;
-        console.log(cards.cardsList)
       })
     }
   },
   mounted() {
     cards.endpoint = 'cardinfo.php?num=50&offset=0';
     this.getCards()
+
   }
 }
 </script>
