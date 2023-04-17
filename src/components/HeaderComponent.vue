@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="container">
+        <h1>Yu-Gi-Oh Api</h1>
     </div>
 </template>
 
