@@ -1,27 +1,44 @@
 <template>
     <div class="bg-white p-4">
         <div class="row-title bg-black text-white">
-            <h6 class="m-0 p-4">Found n cards</h6>
+            <h6 class="m-0 p-4">Found {{ cards.cardsList.length }} cards</h6>
         </div>
 
         <div class="row">
-            <Card />
+            <CardComponent v-for="card in cards.cardsList" :key="card.id" :image="card.card_images[0].image_url"
+                :name="card.name" :archetype="card.archetype" />
         </div>
     </div>
 </template>
 
 <script>
-import Card from './Card.vue';
+
 import { cards } from '../assets/store/store';
+import axios from 'axios';
+import CardComponent from './CardComponent.vue';
 export default {
     name: 'CardList',
     components: {
-        Card
+        CardComponent
     },
     data() {
         return {
             cards
         }
+    },
+    methods: {
+        getCards() {
+            const url = cards.basepath + cards.endpoint;
+            axios.get(url).then((res) => {
+                cards.cardsList = res.data.data;
+                console.log(cards.cardsList)
+            })
+        }
+    },
+    mounted() {
+        cards.endpoint = 'cardinfo.php?num=50&offset=0';
+        this.getCards()
+
     }
 }
 </script>
