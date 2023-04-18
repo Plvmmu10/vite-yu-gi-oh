@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-white {
-    height: 650px;
+    max-height: 50%;
     overflow: auto;
 }
 </style>
