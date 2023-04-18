@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white p-4">
         <div class="row-title bg-black text-white">
-            <h6 class="m-0 p-4">Found cards</h6>
+            <h6 class="m-0 p-4">Found {{ cards.cardsList.length }} cards</h6>
         </div>
 
         <div class="row">
