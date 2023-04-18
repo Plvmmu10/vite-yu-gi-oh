@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white p-4">
         <div class="row-title bg-black text-white">
-            <h6 class="m-0 p-4">Found {{ cards.cardsList.length }} cards</h6>
+            <h6 class="m-0 p-4">Found cards</h6>
         </div>
 
         <div class="row">
@@ -14,7 +14,6 @@
 <script>
 
 import { cards } from '../assets/store/store';
-import axios from 'axios';
 import CardComponent from './CardComponent.vue';
 export default {
     name: 'CardList',
@@ -25,20 +24,6 @@ export default {
         return {
             cards
         }
-    },
-    methods: {
-        getCards() {
-            const url = cards.basepath + cards.endpoint;
-            axios.get(url).then((res) => {
-                cards.cardsList = res.data.data;
-                console.log(cards.cardsList)
-            })
-        }
-    },
-    mounted() {
-        cards.endpoint = 'cardinfo.php?num=50&offset=0';
-        this.getCards()
-
     }
 }
 </script>
